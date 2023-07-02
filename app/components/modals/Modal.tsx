@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import Button from "../Button";
 
 interface ModalProps {
     onSubmit: () => void;
@@ -10,7 +12,7 @@ interface ModalProps {
     body?: React.ReactElement;
     title?: string;
     actionLabel: string;
-    secondaryLabel: string;
+    secondaryLabel?: string;
     disabled?: boolean;
     isOpen?: boolean;
 }
@@ -42,10 +44,8 @@ const Modal: React.FC<ModalProps> = ({
         }, 300);
     }, [disabled, onClose]);
 
-    const handleOnSubmit = useCallback(() => {
+    const handleSubmit = useCallback(() => {
         if (disabled) return;
-
-        setShowModal(false);
 
         onSubmit();
     }, [disabled, onSubmit]);
@@ -120,9 +120,59 @@ const Modal: React.FC<ModalProps> = ({
                                 border-b-[1px]
                             "
                             >
-                                s
+                                <button
+                                    className="
+                                    p-1
+                                    border-0
+                                    outline-none
+                                    rounded-full
+                                    absolute
+                                    left-6
+                                    translate
+                                    duration-300
+                                    flex
+                                    justify-center
+                                    items-center
+                                    hover:bg-neutral-200
+                                    w-[32px]
+                                    h-[32px]
+                                "
+                                    onClick={handleOnClose}
+                                >
+                                    <IoMdClose size={18} />
+                                </button>
+                                <div className="text-lg font-semibold">
+                                    {title}
+                                </div>
                             </div>
-                            sdsd
+                            {/*Body*/}
+                            <div className="p-6 relative">{body}</div>
+                            {/*Footer*/}
+                            <div className="p-6 gap-2 border-t-[1px] flex flex-col">
+                                <div
+                                    className="
+                                    flex
+                                    items-center
+                                    gap-4
+                                    w-full
+                                "
+                                >
+                                    {secondaryAction && secondaryLabel && (
+                                        <Button
+                                            outline
+                                            disabled={disabled}
+                                            label={secondaryLabel}
+                                            onClick={handleSecondaryAction}
+                                        />
+                                    )}
+
+                                    <Button
+                                        disabled={disabled}
+                                        label={actionLabel}
+                                        onClick={handleSubmit}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
