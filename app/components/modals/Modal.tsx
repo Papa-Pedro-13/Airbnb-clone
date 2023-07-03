@@ -148,7 +148,7 @@ const Modal: React.FC<ModalProps> = ({
                             {/*Body*/}
                             <div className="p-6 relative">{body}</div>
                             {/*Footer*/}
-                            <div className="p-6 gap-2 border-t-[1px] flex flex-col">
+                            <div className="p-6 gap-2 flex flex-col">
                                 <div
                                     className="
                                     flex
@@ -172,6 +172,7 @@ const Modal: React.FC<ModalProps> = ({
                                         onClick={handleSubmit}
                                     />
                                 </div>
+                                {footer}
                             </div>
                         </div>
                     </div>
