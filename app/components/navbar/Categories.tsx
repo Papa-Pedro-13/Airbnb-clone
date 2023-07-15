@@ -17,7 +17,7 @@ import {
 import { MdOutlineVilla } from "react-icons/md";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
-const categories = [
+export const categories = [
     {
         label: "Beach",
         icon: TbBeach,
