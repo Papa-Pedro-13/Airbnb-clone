@@ -6,7 +6,7 @@ interface InputProps {
     type?: string;
     disabled?: boolean;
     label: string;
-    formatPrice?: string;
+    formatPrice?: boolean;
     required?: boolean;
     register: UseFormRegister<FieldValues>;
     errors: FieldErrors;
