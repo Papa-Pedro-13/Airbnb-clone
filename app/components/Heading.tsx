@@ -9,6 +9,7 @@ const Heading: React.FC<HeadingProps> = ({ title, subtitle, center }) => {
     return (
         <div
             className={`
+                flex flex-col gap-3
                 ${center ? "text-center" : "text-left"} 
                
             `}
