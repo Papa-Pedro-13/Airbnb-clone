@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
@@ -8,11 +9,12 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import ListingCard from "../components/listings/ListingCard";
 
-interface TripsClientProps {
+interface ReservationsClientProps {
     reservations: SafeReservation[];
     currentUser?: SafeUser | null;
 }
-const TripsClient: React.FC<TripsClientProps> = ({
+
+const ReservationsClient: React.FC<ReservationsClientProps> = ({
     reservations,
     currentUser,
 }) => {
@@ -41,8 +43,8 @@ const TripsClient: React.FC<TripsClientProps> = ({
     return (
         <Container>
             <Heading
-                title="Trips"
-                subtitle="Where you've been and where you're going"
+                title="Reservations"
+                subtitle="Booking on your properties"
             />
             <div
                 className="
@@ -74,4 +76,4 @@ const TripsClient: React.FC<TripsClientProps> = ({
     );
 };
 
-export default TripsClient;
+export default ReservationsClient;
